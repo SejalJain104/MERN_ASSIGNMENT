@@ -20,24 +20,21 @@ async function handleFetchUsersByEmail(req, res) {
 }
 
 async function handleFetchUsers(req, res) {
-    console.log("users hit");
-    try {
-      const users = await User.find({});
-      if (users) {
-        res.status(200).json(users);
-      } else {
-        res.status(404).json({ message: "User not found" });
-      }
-    } catch (error) {
-      res
-        .status(500)
-        .json({ message: "Error fetching user", error: error.message });
+  try {
+    const users = await User.find({});
+    if (users) {
+      res.status(200).json(users);
+    } else {
+      res.status(404).json({ message: "User not found" });
     }
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error fetching user", error: error.message });
   }
-  
+}
 
 async function handleUserCreation(req, res) {
-  console.log("users hit");
   const { name, email, age } = req.body;
   console.log(req.body);
   try {

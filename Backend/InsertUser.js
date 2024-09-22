@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('./model/User')
 
-
-//Script to insert a new user
 const insertUser = async () => {
     try{
         const newUser = await User.create({
@@ -12,7 +10,6 @@ const insertUser = async () => {
         });
         console.log('User Saved',newUser);
 
-        // Close the MongoDB connection 
         mongoose.connection.close();
     }
     catch(error){

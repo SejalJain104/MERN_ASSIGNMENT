@@ -1,27 +1,29 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const blogSchema = new mongoose.Schema({
-    title:{
-        type: String,
-        required: true,
+const blogSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
     },
-    content:{
-        type:String,
-        required: true,
+    content: {
+      type: String,
+      required: true,
     },
-    author:{
-        type:String,
-        required: true,
+    author: {
+      type: String,
+      required: true,
     },
     createdAt: {
-        type: Date,
-        default: Date.now,
-    }
-},{
-    timestamps: true
-});
+      type: Date,
+      default: Date.now,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-//Create a User model
-const Blog = mongoose.model('Blog',blogSchema);
+const Blog = mongoose.model("Blog", blogSchema);
 
 module.exports = Blog;
