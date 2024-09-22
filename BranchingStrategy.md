@@ -1,5 +1,6 @@
+### Resolving Merge Conflicts: Step-by-Step Guide
 When merging a feature branch into the main branch in Git, we may encounter merge conflicts if changes in both branches affect the same lines of code.  
-Here's how to resolve these conflicts step-by-step:
+Steps to resolve these conflicts step-by-step:
 
 ### Step 1: Attempt to Merge the Feature Branch
 
