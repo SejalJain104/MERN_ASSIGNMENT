@@ -1,44 +1,34 @@
-### Resolving Merge Conflicts: Step-by-Step Guide
-When merging a feature branch into the main branch in Git, we may encounter merge conflicts if changes in both branches affect the same lines of code.  
-Steps to resolve these conflicts step-by-step:
+**GitFlow** is a branching strategy that organizes software development into manageable sections, allowing multiple developers to work simultaneously while keeping the codebase stable.
 
-### Step 1: Attempt to Merge the Feature Branch
+### Key Branches:
 
-1. **Switch to the Main Branch**: Make sure we are on the main branch.  
-   Command - `git checkout main`
+1. **Main branch**: Contains stable, production-ready code.
+2. **Develop branch**: Integrates completed features before merging into main.
+3. **Feature Branches**: Created for individual features, merging back into develop when complete.
+4. **Release Branches**: Used for final adjustments before merging into main.
+5. **Hotfix Branches**: Created from main to quickly address critical issues.
 
-2. **Merge the Feature Branch**: Attempt to merge the feature branch into the main branch.  
-   Command - `git merge feature/our-feature-name`
+### Implementation for a New Feature:
 
-3. **Identify Conflicts**: If there are conflicts, Git will display a message indicating which files have conflicts. The affected files will be marked as "unmerged."
+1. **Create a Feature Branch**:  
+   When starting a new feature, create a new branch from the develop branch. This keeps the feature isolated until it’s ready to be merged.
 
-### Step 2: Open the Conflicted Files
+2. **Develop the Feature**:  
+   Make changes, add files, and commit your changes to the feature branch.
 
-1. **Locate Conflicted Files**: Use `git status` to see a list of files with merge conflicts.  
-   Command - `git status`
+3. **Merge Back to Develop**:  
+   Once the feature is complete and tested, switch back to the develop branch and merge the feature branch into it.
 
-2. **Open Each Conflicted File**: Open each file in your text editor or IDE. Conflicts will be marked with conflict markers.
+4. **Delete the Feature Branch**:  
+   After merging, it’s a good practice to delete the feature branch to keep the repository clean.
 
-### Step 3: Resolve the Conflicts
+5. **Prepare for Release**:  
+   When the develop branch has enough features for a release, create a release branch for final adjustments and testing.
 
-1. **Decide How to Resolve**: For each conflict, decide how to resolve it. We can choose one version, combine both, or rewrite the code. Remove the conflict markers after making your changes.
+6. **Merge Release into Main**:  
+   Once everything is finalized, merge the release branch into the main branch and tag the release.
 
-2. **Edit the Code**: Modify the code as necessary to create a single, coherent version.
+7. **Hotfixes**:  
+   If any critical issues arise after the release, create a hotfix branch from main, resolve the issue, and merge back into both main and develop.
 
-### Step 4: Mark the Conflicts as Resolved
-
-1. **Add the Resolved Files**: After resolving conflicts in all files, stage the changes.  
-   Command - `git add <file1> <file2> ...`
-
-2. **Commit the Merge**: Once all conflicts are resolved and staged, commit the merge.  
-   Command - `git commit -m "Resolved merge conflicts"`
-
-### Step 5: Complete the Merge
-
-1. **Check the Log**: Verify that the merge was successful and that your commit history is correct.  
-   Command - `git log`
-
-2. **Push Changes (if necessary)**: If we are working with a remote repository, push the changes to the main branch.  
-   Command - `git push origin main`
-
-Resolving merge conflicts is a common task in collaborative development. By following these steps, we can efficiently resolve conflicts and ensure that the main branch remains stable while integrating changes from feature branches.
+This structured approach helps maintain a clean and manageable codebase, allowing teams to collaborate efficiently on new features and fixes.
