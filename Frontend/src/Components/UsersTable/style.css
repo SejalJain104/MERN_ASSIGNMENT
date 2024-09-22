@@ -1,0 +1,37 @@
+.users-table-container{
+    width:90vw;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.users-table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.users-table th,
+.users-table td{
+    border: 1px solid #d4cdcd;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.users-table th{
+    background-color: #5c6bc0;
+    color: white
+}
+
+.users-table tr:hover {
+    background-color: #f1f1f1; /* Simple hover effect for rows */
+}
+
+.head{
+    margin: 0;
+    padding-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 560;
+}

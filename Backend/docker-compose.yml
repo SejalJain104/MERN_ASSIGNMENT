@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"   # Exposing the app on port 3000
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/users  # Use the service name as hostname
+      - PORT=3000
+  mongodb:
+       image: mongo
+       ports:
+         - "27017:27017"   # Exposing MongoDB on port 27017
+       volumes:
+         - mongo-data:/data/db  # Persist MongoDB data
+
+volumes:
+  mongo-data:  # Named volume for MongoDB data persistence
+
+networks:
+  default:
+    driver: bridge  # Use the default bridge network
