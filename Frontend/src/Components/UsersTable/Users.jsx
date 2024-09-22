@@ -5,12 +5,10 @@ import './style.css'
 function Users() {
     const [users, setUsers] = useState([]);
 
-    //Fetch users from /users Api
     useEffect(() => {
        const fetchUsers = async () => {
         try{
         const response = await axios.get('/api/users/find');
-        console.log(response.data);
         setUsers(response.data);
        }catch(error){
         console.log('Error Fetching users',error)
